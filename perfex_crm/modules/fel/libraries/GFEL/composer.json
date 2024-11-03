@@ -1,0 +1,20 @@
+{
+    "name": "juanj/gfel",
+    "description": "Guatemala Factura Electronica",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Juanj\\Gfel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juan Jose Prieto Dzul",
+            "email": "juanjoseprieto88@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-dom": "*"
+    }
+}
