@@ -87,7 +87,7 @@ function get_styling_areas($type = 'admin')
             [
                 'name'                 => _l('theme_style_top_header_bg_links_color'),
                 'id'                   => 'top-header-links',
-                'target'               => '.admin .navbar-nav > li > a, .admin .navbar-nav > li > a > span > svg, ul.mobile-icon-menu>li>a,.mobile-menu-toggle, .open-customizer-mobile',
+                'target'               => '.admin .navbar-nav > li > a, ul.mobile-icon-menu>li>a,.mobile-menu-toggle, .open-customizer-mobile',
                 'css'                  => 'color',
                 'additional_selectors' => '',
             ],

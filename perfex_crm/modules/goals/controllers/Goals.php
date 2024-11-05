@@ -13,7 +13,7 @@ class Goals extends AdminController
     /* List all announcements */
     public function index()
     {
-        if (staff_cant('view', 'goals')) {
+        if (!has_permission('goals', '', 'view')) {
             access_denied('goals');
         }
         if ($this->input->is_ajax_request()) {
@@ -26,12 +26,12 @@ class Goals extends AdminController
 
     public function goal($id = '')
     {
-        if (staff_cant('view', 'goals')) {
+        if (!has_permission('goals', '', 'view')) {
             access_denied('goals');
         }
         if ($this->input->post()) {
             if ($id == '') {
-                if (staff_cant('create', 'goals')) {
+                if (!has_permission('goals', '', 'create')) {
                     access_denied('goals');
                 }
                 $id = $this->goals_model->add($this->input->post());
@@ -40,7 +40,7 @@ class Goals extends AdminController
                     redirect(admin_url('goals/goal/' . $id));
                 }
             } else {
-                if (staff_cant('edit', 'goals')) {
+                if (!has_permission('goals', '', 'edit')) {
                     access_denied('goals');
                 }
                 $success = $this->goals_model->update($this->input->post(), $id);
@@ -72,7 +72,7 @@ class Goals extends AdminController
     /* Delete announcement from database */
     public function delete($id)
     {
-        if (staff_cant('delete', 'goals')) {
+        if (!has_permission('goals', '', 'delete')) {
             access_denied('goals');
         }
         if (!$id) {
@@ -89,7 +89,7 @@ class Goals extends AdminController
 
     public function notify($id, $notify_type)
     {
-        if (staff_cant('edit', 'goals') && staff_cant('create', 'goals')) {
+        if (!has_permission('goals', '', 'edit') && !has_permission('goals', '', 'create')) {
             access_denied('goals');
         }
         if (!$id) {
